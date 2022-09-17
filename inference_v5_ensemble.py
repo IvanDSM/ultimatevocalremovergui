@@ -478,6 +478,12 @@ class Predictor():
         else:
             file_exists = 'not_there'
 
+        # Set SoX command according to the platform
+        if sys.platform == 'win32':
+            sox_cmd = "lib_v5\\sox\\sox.exe"
+        else:
+            sox_cmd = "sox"
+        
         if demucs_only == 'on':
             data['noisereduc_s'] == 'None'
 
@@ -494,9 +500,9 @@ class Predictor():
                 widget_text.write('Done!\n')        
                 widget_text.write(base_text + 'Performing Noise Reduction... ')
                 reduction_sen = float(int(data['noisereduc_s'])/10)
-                subprocess.call("lib_v5\\sox\\sox.exe" + ' "' + 
+                subprocess.call(sox_cmd + ' "' + 
                             f"{str(non_reduced_vocal_path)}"  + '" "' + f"{str(vocal_path)}" + '" ' + 
-                            "noisered lib_v5\\sox\\" + noise_pro_set + ".prof " + f"{reduction_sen}", 
+                            "noisered " + os.path.join('lib_v5', 'sox', noise_pro_set + ".prof") + f" {reduction_sen}", 
                             shell=True, stdout=subprocess.PIPE,
                             stdin=subprocess.PIPE, stderr=subprocess.PIPE)
                 widget_text.write('Done!\n')        
@@ -525,9 +531,9 @@ class Predictor():
                     widget_text.write('Done!\n')
                     widget_text.write(base_text + 'Performing Noise Reduction... ')
                     reduction_sen = float(data['noisereduc_s'])/10
-                    subprocess.call("lib_v5\\sox\\sox.exe" + ' "' + 
+                    subprocess.call(sox_cmd + ' "' + 
                                 f"{str(non_reduced_vocal_path)}"  + '" "' + f"{str(vocal_path)}" + '" ' + 
-                                "noisered lib_v5\\sox\\" + noise_pro_set + ".prof " + f"{reduction_sen}", 
+                                "noisered " + os.path.join('lib_v5', 'sox', noise_pro_set + ".prof") + f" {reduction_sen}", 
                                 shell=True, stdout=subprocess.PIPE,
                                 stdin=subprocess.PIPE, stderr=subprocess.PIPE)
                     update_progress(**progress_kwargs,
