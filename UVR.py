@@ -224,10 +224,14 @@ credits_path = os.path.join(base_path, 'img', 'credits.png')
 demucs_opt_path = os.path.join(base_path, 'img', 'demucs_opt.png')
 donate_path = os.path.join(base_path, 'img', 'donate.png')
 download_path = os.path.join(base_path, 'img', 'download.png')
-efile_path = os.path.join(base_path, 'img', 'file.png')
+efile_path = os.path.join(base_path, 'img', 'File.png')
 ense_opt_path = os.path.join(base_path, 'img', 'ense_opt.png')
 gen_opt_path = os.path.join(base_path, 'img', 'gen_opt.png')
 help_path = os.path.join(base_path, 'img', 'help.png')
+if sys.platform == 'win32':
+    icon_path = os.path.join(base_path, 'img', 'UVR-Icon-v2.ico')
+else:
+    icon_path = os.path.join(base_path, 'img', 'UVR-Icon-v2.png')
 instrumentalModels_dir = os.path.join(base_path, 'models')
 key_path = os.path.join(base_path, 'img', 'key.png')
 mdx_opt_path = os.path.join(base_path, 'img', 'mdx_opt.png')
@@ -3293,7 +3297,7 @@ class MainWindow(TkinterDnD.Tk):
         #vr_opt.attributes("-topmost", True)
 
         # change title bar icon
-        vr_opt.iconbitmap(os.path.join('img', 'UVR-Icon-v2.ico'))
+        vr_opt.iconbitmap(True, icon_photo)
 
         def close_win():
             vr_opt.destroy()
@@ -3434,7 +3438,7 @@ class MainWindow(TkinterDnD.Tk):
         demuc_opt.wm_transient(root)
 
         # change title bar icon
-        demuc_opt.iconbitmap(os.path.join('img', 'UVR-Icon-v2.ico'))
+        demuc_opt.iconbitmap(True, icon_photo)
         
         def close_win():
             demuc_opt.destroy()
@@ -3533,7 +3537,7 @@ class MainWindow(TkinterDnD.Tk):
         mdx_net_opt.wm_transient(root)
 
         # change title bar icon
-        mdx_net_opt.iconbitmap(os.path.join('img', 'UVR-Icon-v2.ico'))
+        mdx_net_opt.iconbitmap(True, icon_photo)
         
         def close_win():
             mdx_net_opt.destroy()
@@ -3755,7 +3759,7 @@ class MainWindow(TkinterDnD.Tk):
         custom_ens_opt.wm_transient(root)
 
         # change title bar icon
-        custom_ens_opt.iconbitmap(os.path.join('img', 'UVR-Icon-v2.ico'))
+        custom_ens_opt.iconbitmap(True, icon_photo)
         
         def close_win():
             custom_ens_opt.destroy()
@@ -4113,7 +4117,7 @@ class MainWindow(TkinterDnD.Tk):
             help_guide_opt.wm_transient(root)
 
         # change title bar icon
-        help_guide_opt.iconbitmap(os.path.join('img', 'UVR-Icon-v2.ico'))
+        help_guide_opt.iconbitmap(True, icon_photo)
         
         def close_win():
             help_guide_opt.destroy()
@@ -4441,7 +4445,7 @@ class MainWindow(TkinterDnD.Tk):
         settings_menu.wm_transient(root)
 
         # change title bar icon
-        settings_menu.iconbitmap(os.path.join('img', 'UVR-Icon-v2.ico'))
+        settings_menu.iconphoto(True, icon_photo)
 
         def askyesorno():
             """
@@ -4472,7 +4476,7 @@ class MainWindow(TkinterDnD.Tk):
             top_dialoge.geometry("{}x{}+{}+{}".format(window_width, window_height, x_cordinate, y_cordinate))
 
             # change title bar icon
-            top_dialoge.iconbitmap(os.path.join('img', 'UVR-Icon-v2.ico'))
+            top_dialoge.iconbitmap(True, icon_photo)
             
             tabControl = ttk.Notebook(top_dialoge)
             
@@ -4757,7 +4761,7 @@ class MainWindow(TkinterDnD.Tk):
             top_code.wm_transient(settings_menu)
 
             # change title bar icon
-            top_code.iconbitmap(os.path.join('img', 'UVR-Icon-v2.ico'))
+            top_code.iconbitmap(True, icon_photo)
             
             tabControl = ttk.Notebook(top_code)
             
@@ -4870,7 +4874,7 @@ class MainWindow(TkinterDnD.Tk):
             top_code.wm_transient(settings_menu)
 
             # change title bar icon
-            top_code.iconbitmap(os.path.join('img', 'UVR-Icon-v2.ico'))
+            top_code.iconbitmap(True, icon_photo)
             
             tabControl = ttk.Notebook(top_code)
             
@@ -6167,7 +6171,7 @@ class MainWindow(TkinterDnD.Tk):
         # error_log_screen.wm_transient(root)
 
         # change title bar icon
-        error_log_screen.iconbitmap(os.path.join('img', 'UVR-Icon-v2.ico'))
+        error_log_screen.iconbitmap(True, icon_photo)
         
         def close_win():
             error_log_screen.destroy()
@@ -6379,12 +6383,9 @@ if __name__ == "__main__":
 
     root = MainWindow()
 
-    root.tk.call(
-    'wm', 
-    'iconphoto', 
-    root._w, 
-    tk.PhotoImage(file=os.path.join('img', 'GUI-Icon.png'))
-    )
+    icon_photo = tk.PhotoImage(file=icon_path)
+
+    root.tk.call('wm', 'iconphoto', root._w, icon_photo)
 
     lib_v5.sv_ttk.set_theme("dark")
     lib_v5.sv_ttk.use_dark_theme()  # Set dark theme
