@@ -119,7 +119,9 @@ These instructions are for those installing UVR v5.2.0 **manually** only.
 2. Download the Source code [here](https://github.com/Anjok07/ultimatevocalremovergui/archive/refs/heads/master.zip)
 3. Download the models via the "Settings" menu within the application.
 4. Extract the *ultimatevocalremovergui-master* folder within ultimatevocalremovergui-master.zip where ever you wish.
-5. Download the SoX archive [here](https://sourceforge.net/projects/sox/files/sox/14.4.2/sox-14.4.2-win32.zip/download) and extract the contents into the *ultimatevocalremovergui-master/lib_v5/sox* directory.
+5. Provide a SoX installation accessible to UVR:
+    - **On Windows:** Download the SoX archive [here](https://sourceforge.net/projects/sox/files/sox/14.4.2/sox-14.4.2-win32.zip/download) and extract the contents into the *ultimatevocalremovergui-master/lib_v5/sox* directory.
+    - **On Linux/macOS:** Install SoX through your operating system's package manager. For example, on Ubuntu run: `sudo apt install sox `.
 6. Open the command prompt from the ultimatevocalremovergui-master directory and run the following commands, separately - 
 
 ```
