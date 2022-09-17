@@ -89,7 +89,7 @@ class Predictor():
         mdx_model_set.geometry("{}x{}+{}+{}".format(window_width, window_height, x_cordinate, y_cordinate))
 
         # change title bar icon
-        mdx_model_set.iconbitmap('img\\UVR-Icon-v2.ico')
+        mdx_model_set.iconbitmap(os.path.join('img', 'UVR-Icon-v2.ico'))
         
         mdx_model_set_window = ttk.Notebook(mdx_model_set)
         
