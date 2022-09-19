@@ -3312,7 +3312,7 @@ class MainWindow(TkinterDnD.Tk):
         #vr_opt.attributes("-topmost", True)
 
         # change title bar icon
-        vr_opt.iconbitmap(True, icon_photo)
+        vr_opt.iconphoto(True, icon_photo)
 
         def close_win():
             vr_opt.destroy()
@@ -3453,7 +3453,7 @@ class MainWindow(TkinterDnD.Tk):
         demuc_opt.wm_transient(root)
 
         # change title bar icon
-        demuc_opt.iconbitmap(True, icon_photo)
+        demuc_opt.iconphoto(True, icon_photo)
         
         def close_win():
             demuc_opt.destroy()
@@ -3552,7 +3552,7 @@ class MainWindow(TkinterDnD.Tk):
         mdx_net_opt.wm_transient(root)
 
         # change title bar icon
-        mdx_net_opt.iconbitmap(True, icon_photo)
+        mdx_net_opt.iconphoto(True, icon_photo)
         
         def close_win():
             mdx_net_opt.destroy()
@@ -3774,7 +3774,7 @@ class MainWindow(TkinterDnD.Tk):
         custom_ens_opt.wm_transient(root)
 
         # change title bar icon
-        custom_ens_opt.iconbitmap(True, icon_photo)
+        custom_ens_opt.iconphoto(True, icon_photo)
         
         def close_win():
             custom_ens_opt.destroy()
@@ -4132,7 +4132,7 @@ class MainWindow(TkinterDnD.Tk):
             help_guide_opt.wm_transient(root)
 
         # change title bar icon
-        help_guide_opt.iconbitmap(True, icon_photo)
+        help_guide_opt.iconphoto(True, icon_photo)
         
         def close_win():
             help_guide_opt.destroy()
@@ -4491,7 +4491,7 @@ class MainWindow(TkinterDnD.Tk):
             top_dialoge.geometry("{}x{}+{}+{}".format(window_width, window_height, x_cordinate, y_cordinate))
 
             # change title bar icon
-            top_dialoge.iconbitmap(True, icon_photo)
+            top_dialoge.iconphoto(True, icon_photo)
             
             tabControl = ttk.Notebook(top_dialoge)
             
@@ -4776,7 +4776,7 @@ class MainWindow(TkinterDnD.Tk):
             top_code.wm_transient(settings_menu)
 
             # change title bar icon
-            top_code.iconbitmap(True, icon_photo)
+            top_code.iconphoto(True, icon_photo)
             
             tabControl = ttk.Notebook(top_code)
             
@@ -4889,7 +4889,7 @@ class MainWindow(TkinterDnD.Tk):
             top_code.wm_transient(settings_menu)
 
             # change title bar icon
-            top_code.iconbitmap(True, icon_photo)
+            top_code.iconphoto(True, icon_photo)
             
             tabControl = ttk.Notebook(top_code)
             
@@ -6186,7 +6186,7 @@ class MainWindow(TkinterDnD.Tk):
         # error_log_screen.wm_transient(root)
 
         # change title bar icon
-        error_log_screen.iconbitmap(True, icon_photo)
+        error_log_screen.iconphoto(True, icon_photo)
         
         def close_win():
             error_log_screen.destroy()
