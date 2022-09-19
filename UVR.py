@@ -555,6 +555,9 @@ class MainWindow(TkinterDnD.Tk):
         self.resizable(False, False)
         self.update()
 
+        self.option_add('*foreground', 'gray')
+        self.option_add('*activeForeground', 'gray')
+
         # --Variables--
         self.logo_img = open_image(path=banner_path,
                                    size=(self.winfo_width(), 9999))
