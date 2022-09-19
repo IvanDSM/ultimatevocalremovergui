@@ -555,6 +555,9 @@ class MainWindow(TkinterDnD.Tk):
         self.resizable(False, False)
         self.update()
 
+        self.option_add('*foreground', 'gray')
+        self.option_add('*activeForeground', 'gray')
+
         # --Variables--
         self.logo_img = open_image(path=banner_path,
                                    size=(self.winfo_width(), 9999))
@@ -1961,14 +1964,26 @@ class MainWindow(TkinterDnD.Tk):
         and add to the select your model list
         """
         temp_DemucsModels_dir = os.path.join(instrumentalModels_dir, 'Demucs_Models')
+
+        if not os.path.exists(temp_DemucsModels_dir):
+            os.mkdir(temp_DemucsModels_dir)
+
         new_DemucsModels = os.listdir(temp_DemucsModels_dir)
   
         temp_MDXModels_dir = os.path.join(instrumentalModels_dir, 'MDX_Net_Models')  # nopep8
+
+        if not os.path.exists(temp_MDXModels_dir):
+            os.mkdir(temp_MDXModels_dir)
+
         new_MDXModels = os.listdir(temp_MDXModels_dir)
         
         newmodels = [new_DemucsModels, new_MDXModels]
 
         temp_instrumentalModels_dir = os.path.join(instrumentalModels_dir, 'Main_Models')  # nopep8
+
+        if not os.path.exists(temp_instrumentalModels_dir):
+            os.mkdir(temp_instrumentalModels_dir)
+
         new_InstrumentalModels = os.listdir(temp_instrumentalModels_dir)
         
         if new_InstrumentalModels != self.lastInstrumentalModels_ensem:
@@ -3297,7 +3312,7 @@ class MainWindow(TkinterDnD.Tk):
         #vr_opt.attributes("-topmost", True)
 
         # change title bar icon
-        vr_opt.iconbitmap(True, icon_photo)
+        vr_opt.iconphoto(True, icon_photo)
 
         def close_win():
             vr_opt.destroy()
@@ -3438,7 +3453,7 @@ class MainWindow(TkinterDnD.Tk):
         demuc_opt.wm_transient(root)
 
         # change title bar icon
-        demuc_opt.iconbitmap(True, icon_photo)
+        demuc_opt.iconphoto(True, icon_photo)
         
         def close_win():
             demuc_opt.destroy()
@@ -3537,7 +3552,7 @@ class MainWindow(TkinterDnD.Tk):
         mdx_net_opt.wm_transient(root)
 
         # change title bar icon
-        mdx_net_opt.iconbitmap(True, icon_photo)
+        mdx_net_opt.iconphoto(True, icon_photo)
         
         def close_win():
             mdx_net_opt.destroy()
@@ -3759,7 +3774,7 @@ class MainWindow(TkinterDnD.Tk):
         custom_ens_opt.wm_transient(root)
 
         # change title bar icon
-        custom_ens_opt.iconbitmap(True, icon_photo)
+        custom_ens_opt.iconphoto(True, icon_photo)
         
         def close_win():
             custom_ens_opt.destroy()
@@ -4117,7 +4132,7 @@ class MainWindow(TkinterDnD.Tk):
             help_guide_opt.wm_transient(root)
 
         # change title bar icon
-        help_guide_opt.iconbitmap(True, icon_photo)
+        help_guide_opt.iconphoto(True, icon_photo)
         
         def close_win():
             help_guide_opt.destroy()
@@ -4476,7 +4491,7 @@ class MainWindow(TkinterDnD.Tk):
             top_dialoge.geometry("{}x{}+{}+{}".format(window_width, window_height, x_cordinate, y_cordinate))
 
             # change title bar icon
-            top_dialoge.iconbitmap(True, icon_photo)
+            top_dialoge.iconphoto(True, icon_photo)
             
             tabControl = ttk.Notebook(top_dialoge)
             
@@ -4761,7 +4776,7 @@ class MainWindow(TkinterDnD.Tk):
             top_code.wm_transient(settings_menu)
 
             # change title bar icon
-            top_code.iconbitmap(True, icon_photo)
+            top_code.iconphoto(True, icon_photo)
             
             tabControl = ttk.Notebook(top_code)
             
@@ -4874,7 +4889,7 @@ class MainWindow(TkinterDnD.Tk):
             top_code.wm_transient(settings_menu)
 
             # change title bar icon
-            top_code.iconbitmap(True, icon_photo)
+            top_code.iconphoto(True, icon_photo)
             
             tabControl = ttk.Notebook(top_code)
             
@@ -6171,7 +6186,7 @@ class MainWindow(TkinterDnD.Tk):
         # error_log_screen.wm_transient(root)
 
         # change title bar icon
-        error_log_screen.iconbitmap(True, icon_photo)
+        error_log_screen.iconphoto(True, icon_photo)
         
         def close_win():
             error_log_screen.destroy()
