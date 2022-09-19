@@ -1961,14 +1961,26 @@ class MainWindow(TkinterDnD.Tk):
         and add to the select your model list
         """
         temp_DemucsModels_dir = os.path.join(instrumentalModels_dir, 'Demucs_Models')
+
+        if not os.path.exists(temp_DemucsModels_dir):
+            os.mkdir(temp_DemucsModels_dir)
+
         new_DemucsModels = os.listdir(temp_DemucsModels_dir)
   
         temp_MDXModels_dir = os.path.join(instrumentalModels_dir, 'MDX_Net_Models')  # nopep8
+
+        if not os.path.exists(temp_MDXModels_dir):
+            os.mkdir(temp_MDXModels_dir)
+
         new_MDXModels = os.listdir(temp_MDXModels_dir)
         
         newmodels = [new_DemucsModels, new_MDXModels]
 
         temp_instrumentalModels_dir = os.path.join(instrumentalModels_dir, 'Main_Models')  # nopep8
+
+        if not os.path.exists(temp_instrumentalModels_dir):
+            os.mkdir(temp_instrumentalModels_dir)
+
         new_InstrumentalModels = os.listdir(temp_instrumentalModels_dir)
         
         if new_InstrumentalModels != self.lastInstrumentalModels_ensem:
